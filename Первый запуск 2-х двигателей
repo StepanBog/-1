@@ -1,0 +1,21 @@
+int speed1=5,speed2=6,dir1=4, dir2=7;
+ 
+ 
+void setup() 
+{  
+        pinMode(speed1, OUTPUT); 
+        pinMode(dir1,OUTPUT); 
+        pinMode(speed2,OUTPUT);
+        pinMode(dir2,OUTPUT);
+} 
+ 
+void loop() 
+{ 
+analogWrite(speed1,125);
+digitalWrite(dir1,HIGH);
+analogWrite(speed2,125);
+digitalWrite(dir2,HIGH);
+delay(100);
+
+while(true);
+}
