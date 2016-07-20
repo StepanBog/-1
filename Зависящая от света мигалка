@@ -1,0 +1,17 @@
+int x;
+void setup() {
+Serial.begin(9600);
+   pinMode(13, OUTPUT);
+  pinMode(A4, INPUT);
+}
+
+
+void loop() {
+  x=analogRead(A4);
+  Serial.print("x=");
+  Serial.println(x);
+    digitalWrite(13,HIGH);
+    delay(x/10);
+   digitalWrite(13,LOW);
+   delay(x/10); 
+ }
