@@ -12,14 +12,14 @@ void loop()
 {
   x=analogRead(Gr);
   if (x<512){
-    digitalWrite(Gr,LOW);
-    analogWrite(speed1,255-x);
+    digitalWrite(dir1,LOW);
+    analogWrite(speed1,255-(x/2));
     delay(100);
   }
 else{
   if (x>512){
-   digitalWrite(Gr,HIGH);
-    analogWrite(speed1,x); 
+   digitalWrite(dir1,HIGH);
+    analogWrite(speed1,x/2); 
         delay(100);
   }
   else{
