@@ -1,0 +1,26 @@
+int speed1=5;
+int But1=12, But2=2;
+ 
+ 
+void setup() 
+{  
+        pinMode(speed1, OUTPUT); 
+       pinMode(But1,INPUT);
+       pinMode(But2,INPUT);
+ Serial.begin(9600);    
+      
+      
+        
+} 
+ 
+void loop() 
+{
+  Serial.print(digitalRead(But2));
+if (digitalRead(But1)==0){
+  while(!(digitalRead(But2)==0)){
+    analogWrite(speed1,255);
+  }
+  analogWrite(speed1,0);
+}
+
+}
