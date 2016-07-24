@@ -1,0 +1,74 @@
+ int speed1=5,speed2=6, dir1=4, dir2=7;
+ int But1=13, But2=12, Col1=A4, Col2=A3,x1,x2,y1,y2; 
+   
+ void setup()  
+ {   
+        pinMode(speed1, OUTPUT);  
+        pinMode(speed2, OUTPUT); 
+        pinMode(dir1, OUTPUT);
+        pinMode(dir2, OUTPUT);     
+        pinMode(But1,INPUT); 
+        pinMode(But2,INPUT); 
+        pinMode(Col1,INPUT);
+        pinMode(Col2,INPUT);
+  Serial.begin(9600);     
+        
+        
+          
+}  
+   
+ void loop()  
+ { 
+
+   
+
+if (digitalRead(But1)==0){ 
+   while(!(digitalRead(But2)==0)){ 
+     x1=analogRead(Col1);
+   y1=analogRead(Col2);
+   if (x1<512){
+    x2=1;
+   }
+   else{
+    x2=0;
+   }
+   if (y1>512){
+    y2=0;
+   }
+   else{
+    y2=1;
+   }
+
+    Serial.println(analogRead(Col1)); 
+   Serial.println(analogRead(Col2)); 
+   Serial.println(x2); 
+   Serial.println(y2);  
+   delay(100);
+    if ((x2==1) && (y2==1)){
+    analogWrite(speed1,30); 
+    digitalWrite(dir1,HIGH);
+    analogWrite(speed2,35);
+    digitalWrite(dir2,LOW);
+    }
+    if ((x2==1) && (y2==0)){
+      analogWrite(speed1,0); 
+    digitalWrite(dir1,HIGH);
+    analogWrite(speed2,35);
+    digitalWrite(dir2,LOW);
+         
+    }
+     if ((x2==0) && (y2==1)){
+      analogWrite(speed1,30); 
+    digitalWrite(dir1,HIGH);
+    analogWrite(speed2,0);
+    digitalWrite(dir2,LOW);
+    }   
+    
+   }
+}
+  analogWrite(speed1,0); 
+     analogWrite(speed2,0);
+ 
+ 
+
+}
